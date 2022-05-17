@@ -1,4 +1,5 @@
 ## UAS PEMROGRAMAN WEB 2
-- [x] Add Landing Page
-- [x] Add Login Page
-- [x] Add Auth
+* Here's some list i've done with :
+- [ ] Add Landing Page
+- [ ] Add Login Page
+- [ ] Add Auth
