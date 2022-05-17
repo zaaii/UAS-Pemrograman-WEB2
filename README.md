@@ -5,8 +5,7 @@
 - [x] Add Login Page
 - [x] Add Auth
 
-* TODO List :
-
+TODO List :
 - [] Add Profile Page
 - [] Add Forgot Password Page And Send Link To Email
 - [] Clean up my code ✨
