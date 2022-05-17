@@ -3,6 +3,7 @@
 - [x] Add Landing Page
 - [x] Add Home page
 - [x] Add Login Page
+- [x] Add Register Page
 - [x] Add Auth
 
 TODO List :
