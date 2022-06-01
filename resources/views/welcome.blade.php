@@ -23,11 +23,11 @@
     <!--    Main Content-->
     <main class="main" id="top">
       <nav class="navbar navbar-light sticky-top" data-navbar-darken-on-scroll="900">
-        <div class="container"><img style="width:135px; height: 50px;" href="index.html" src="{{ asset('img/logo.png') }}" alt="..." /></a>
+        <div class="container"><img href="index.html" src="{{ asset('img/logo.png') }}" alt="..." /></a>
         @if (Route::has('login'))
-          <div class="navbar-nav ms-20">
+          <div class="navbar-nav my-2">
             @auth
-            <a class="btn btn-secondary bt-sm" href="{{ url('/home') }}">Beranda</a>
+            <a class="btn btn-primary bt-sm" href="{{ url('/home') }}">Beranda</a>
             @else
             <a class="btn btn-secondary bt-sm" href="{{ route('login') }}">Masuk</a>
             @endauth
