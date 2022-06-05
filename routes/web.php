@@ -25,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //          USER                 //
 
+Route::get('/home', [MovieController::class, 'showhome']);
+
 // fitur profile dapat diakses jika user sudah login
 Route::get('/profile', function () {
     return view('pages.profile');
@@ -42,6 +44,5 @@ Route::get('/password/reset', function () {
 
 
 //              ADMIN               //
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-
-Route::resource('movie', MovieController::class);
+Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:admin');
+Route::post('add', [MovieController::class, 'store']);

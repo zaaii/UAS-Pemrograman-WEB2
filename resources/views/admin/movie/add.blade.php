@@ -15,7 +15,7 @@
 
 				<!-- form -->
 				<div class="col-12">
-					<form action="{{route('movie.store')}}" method="POST" class="form">
+					<form action="add" method="POST" class="form" enctype="multipart/form-data">
 						@csrf
 						<div class="row">
 							<div class="col-12 col-md-5 form__cover">
@@ -65,16 +65,10 @@
 										</div>
 									</div>
 
-									<div class="col-12 col-sm-6 col-lg-3">
-										<div class="form__group">
-											<input type="text" class="form__input" placeholder="Age">
-										</div>
-									</div>
-
 									<div class="col-12 col-lg-6">
 										<div class="form__group">
 											<div class="form__group">
-												<input type="text" class="form__input" placeholder="Country">
+												<input name="country" type="text" class="form__input" placeholder="Country">
 											</div>
 										</div>
 									</div>
@@ -91,7 +85,7 @@
 												<option name="Historical" value="Historical">Historical</option>
 												<option name="Horror" value="Horror">Horror</option>
 												<option name="Romance" value="Romance">Romance</option>
-												<option name="Science-fiction" value="Science-fiction">Science-fiction</option>
+												<option name="SciFi" value="Science-fiction">Science-fiction</option>
 												<option name="Thriller" value="Thriller">Thriller</option>
 												<option name="Western" value="Western">Western</option>
 												<option name="Other" value="Other">Other</option>
@@ -111,7 +105,7 @@
 							<div class="col-12 col-lg-6">
 								<div class="form__group">
 									<div class="form__group">
-										<input name="quality" id="quality" type="text" class="form__input" placeholder="Movie / Tv Show">
+										<input name="category" id="category" type="text" class="form__input" placeholder="Movie / Tv Show">
 									</div>
 								</div>
 							</div>
@@ -121,7 +115,7 @@
 									<div class="col-12 col-lg-6">
 										<div class="form__video">
 											<label id="video" for="form__video-upload">Upload video</label>
-											<input data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
+											<input name="video" data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
 										</div>
 									</div>
 

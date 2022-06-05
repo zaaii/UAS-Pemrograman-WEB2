@@ -9,16 +9,25 @@ use Illuminate\Support\Facades\View;
 
 class MovieController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showhome()
     {
-            $movies = Movie::all();
-            return View::make('index')->with('movies',$movies);
+        $movies = Movie::all();
+        return view('home', ['movies'=>$movies]);
+    }
+
+    public function showadmin()
+    {
+        $movies = Movie::all();
+        return view('admin.index', ['movies'=>$movies]);
     }
 
     /**
@@ -39,9 +48,31 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Movie::create($input);
-        return redirect('admin')->with('message', 'Movie Added!');
+        $poster = $request->file('poster_path')->getClientOriginalName();
+        //memindah file upload ke folder public/images
+        $request->poster_path->move(public_path('images'), $poster);
+
+        $title = $request->get('original_title');
+        $overview = $request->get('overview');
+        $release_date = $request->get('release_date');
+        $length = $request->get('length');
+        $quality = $request->get('quality');
+        $country = $request->get('country');
+        $genre = $request->get('genre');
+        $category = $request->get('category');
+
+        $movie = new Movie();
+        $movie->original_title = $title;
+        $movie->overview = $overview;
+        $movie->poster_path = $poster;
+        $movie->release_date = $release_date;
+        $movie->length = $length;
+        $movie->quality = $quality;
+        $movie->country = $country;
+        $movie->genre = $genre;
+        $movie->category = $category;
+        $movie->save();
+        return redirect('admin')->with('message', 'Movie Added!');;
     }
 
     /**

@@ -5,7 +5,7 @@
 		<div class="header__content">
 			<!-- header logo -->
 			<a href="{{ url('/') }}" class="header__logo">
-				<img src="img/logo.svg" style="width: auto; height:auto;" alt="Movies & TV Shows, Online">
+				<img src="{{asset('img/logo.svg')}}" style="width: auto; height:auto;" alt="Movies & TV Shows, Online">
 			</a>
 			<!-- end header logo -->
 

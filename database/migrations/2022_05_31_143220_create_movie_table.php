@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('genre');
             $table->string('quality');
             $table->string('category');
+            $table->string('country');
             $table->timestamps();
         });
     }
