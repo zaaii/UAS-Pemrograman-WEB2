@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('actor', function (Blueprint $table) {
-            $table->id();
-            $table->string('actor_imge');
-            $table->text('name');
-            $table->string('gender');
-            $table->date('born_date');
-            $table->integer('age');
-            $table->string('from');
+        Schema::create('tvseries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('poster_path');
+            $table->string('release_date');
+            $table->string('genre');
+            $table->string('quality');
+            $table->string('category');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor');
+        Schema::dropIfExists('tvseries');
     }
 };
