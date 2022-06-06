@@ -11,7 +11,7 @@ class MovieController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.

@@ -37,6 +37,21 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
+// live
+Route::get('/live', function () {
+    return view('pages.live');
+});
+
+//contact
+Route::get('/contacts', function () {
+    return view('pages.contacts');
+});
+
+//privacy
+Route::get('/privacy', function () {
+    return view('pages.privacy');
+});
+
 // fitur forgot password tidak bisa di akses dalam mode sudah login
 Route::get('/password/reset', function () {
     return view('auth.passwords.email');
