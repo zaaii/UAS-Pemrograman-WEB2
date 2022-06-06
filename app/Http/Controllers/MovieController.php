@@ -18,7 +18,7 @@ class MovieController extends Controller
      */
     public function showhome()
     {
-        $movies = Movie::all();
+        $movies = Movie::paginate(12);
         return view('home', ['movies'=>$movies]);
     }
 
@@ -50,6 +50,10 @@ class MovieController extends Controller
         //memindah file upload ke folder public/images
         $request->poster_path->move(public_path('images'), $poster);
 
+        $backdrop = $request->file('backdrop_path')->getClientOriginalName();
+        //memindah file upload ke folder public/images
+        $request->backdrop_path->move(public_path('images'), $backdrop);
+
         $title = $request->get('original_title');
         $overview = $request->get('overview');
         $release_date = $request->get('release_date');
@@ -63,6 +67,7 @@ class MovieController extends Controller
         $movie->original_title = $title;
         $movie->overview = $overview;
         $movie->poster_path = $poster;
+        $movie->backdrop_path = $backdrop;
         $movie->release_date = $release_date;
         $movie->length = $length;
         $movie->quality = $quality;

@@ -37,21 +37,6 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
-// live
-Route::get('/live', function () {
-    return view('pages.live');
-});
-
-//contact
-Route::get('/contacts', function () {
-    return view('pages.contacts');
-});
-
-//privacy
-Route::get('/privacy', function () {
-    return view('pages.privacy');
-});
-
 // fitur forgot password tidak bisa di akses dalam mode sudah login
 Route::get('/password/reset', function () {
     return view('auth.passwords.email');
@@ -65,4 +50,4 @@ Route::get('/genre', function () {
 //              ADMIN               //
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:admin');
-Route::post('add', [MovieController::class, 'store'])->name('add');
+Route::post('add', [MovieController::class, 'store']);
