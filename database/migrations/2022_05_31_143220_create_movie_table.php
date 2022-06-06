@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('original_title');
             $table->string('overview');
             $table->string('poster_path');
+            $table->string('backdrop_path');
             $table->string('release_date');
             $table->string('video');
             $table->string('length');

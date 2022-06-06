@@ -22,8 +22,8 @@
 								<div class="row">
 									<div class="col-12 col-sm-6 col-md-12">
 										<div class="form__img">
-											<label for="poster_path">Upload Poster (190 x 270)</label>
-											<input id="poster_path" name="poster_path" type="file" accept=".png, .jpg, .jpeg">
+											<label for="form__img-upload">Upload Poster</label>
+											<input id="form__img-upload" name="poster_path" type="file" accept=".png, .jpg, .jpeg">
 											<img id="form__img" src="#" alt=" ">
 										</div>
 									</div>
@@ -95,8 +95,8 @@
 
 									<div class="col-12">
 										<div class="form__gallery">
-											<label id="gallery1" for="form__gallery-upload">Upload photos</label>
-											<input data-name="#gallery1" id="form__gallery-upload" name="gallery" class="form__gallery-upload" type="file" accept=".png, .jpg, .jpeg" multiple>
+											<label id="gallery1" for="form__gallery-upload">Upload Backdrop</label>
+											<input data-name="#gallery1" id="form__gallery-upload" name="backdrop_path" class="form__gallery-upload" type="file" accept=".png, .jpg, .jpeg" multiple>
 										</div>
 									</div>
 								</div>

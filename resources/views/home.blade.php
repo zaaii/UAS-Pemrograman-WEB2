@@ -7,10 +7,10 @@
         @foreach($movies as $movie)
         <div class="home__card">
             <a href="details.html">
-                <img src="img/home/1.jpg" alt="">
+                <img src="images/{{$movie->backdrop_path}}" alt="">
             </a>
             <div>
-                <h2>{{$movie->original_title}}</h2>
+                <h2>{{ Str::limit($movie->original_title, 10)}}</h2>
                 <ul>
                     <li>{{$movie->quality}}</li>
                     <li>{{$movie->genre}}</li>
@@ -108,14 +108,12 @@
     
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>		
+                </div>	
 
         <div class="row">
             <div class="col-12">
                 <div class="catalog__paginator-wrap">
-                    <span class="catalog__pages">12 from 144</span>
+                    <span class="catalog__pages">Total Items : {{$movies->total()}}</span>
 
                     <ul class="catalog__paginator">
                         <li>
