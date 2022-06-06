@@ -24,7 +24,7 @@ class MovieController extends Controller
 
     public function showadmin()
     {
-        $movies = Movie::all();
+        $movies = Movie::paginate();
         return view('admin.index', ['movies'=>$movies]);
     }
 

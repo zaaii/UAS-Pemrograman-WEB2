@@ -44,10 +44,25 @@ Route::get('/password/reset', function () {
 
 Route::get('/genre', function () {
     return view('pages.genre');
-});
+})->middleware('auth');
 
+Route::get('/live', function () {
+    return view('pages.live');
+})->middleware('auth');
+
+Route::get('/contacts', function () {
+    return view('pages.contact');
+})->middleware('auth');
+
+Route::get('/detail', function () {
+    return view('pages.detail');
+})->middleware('auth');
 
 //              ADMIN               //
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:admin');
-Route::post('add', [MovieController::class, 'store']);
+Route::post('add', [MovieController::class, 'store'])->middleware('role:admin');
+
+Route::resource('/user', \App\Http\Controllers\UserController::class);
+Route::get('users', [UserController::class, 'index'])->middleware('role:admin');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->middleware('role:admin');
