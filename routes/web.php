@@ -46,3 +46,6 @@ Route::get('/password/reset', function () {
 //              ADMIN               //
 Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:admin');
 Route::post('add', [MovieController::class, 'store']);
+Route::get('admin/movie/add', function () {
+    return view('admin.movie.add');
+});
