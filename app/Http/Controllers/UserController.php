@@ -7,15 +7,25 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showdata()
     {
         $users = User::paginate();
         return view('admin.user.user', ['users'=>$users]);
+    }
+
+    public function showadmin()
+    {
+        $users = User::paginate();
+        return view('admin.index', ['users'=>$users]);
     }
 
     /**
@@ -25,7 +35,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.movie.add');
     }
 
     /**
@@ -56,9 +65,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        User::findOrFail($id);
+        return view('admin.user.edit');
     }
 
     /**
@@ -68,9 +78,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $users = User::findOrFail($id);
+        $input = $request->all();
+        $users->update($input);
+        return redirect('user')->with('flash_message', 'User updated!');
     }
 
     /**
@@ -79,8 +92,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('user')->with('flash_message', 'User deleted!');
     }
 }

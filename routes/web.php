@@ -4,6 +4,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,24 +38,9 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
-//contact
-Route::get('/contacts', function () {
-    return view('pages.contact');
-});
-
-//live
-Route::get('/live', function () {
-    return view('pages.live');
-});
-
 //about
 Route::get('/about', function () {
     return view('pages.about');
-});
-
-//privacy
-Route::get('/privacy', function () {
-    return view('pages.privacy');
 });
 
 // fitur forgot password tidak bisa di akses dalam mode sudah login
@@ -68,6 +54,10 @@ Route::get('/genre', function () {
 
 Route::get('/live', function () {
     return view('pages.live');
+})->middleware('auth');
+
+Route::get('/privacy', function () {
+    return view('pages.privacy');
 })->middleware('auth');
 
 Route::get('/contacts', function () {
@@ -84,5 +74,5 @@ Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:adm
 Route::post('add', [MovieController::class, 'store'])->middleware('role:admin');
 
 Route::resource('/user', \App\Http\Controllers\UserController::class);
-Route::get('users', [UserController::class, 'index'])->middleware('role:admin');
+Route::get('users', [UserController::class, 'showadmin'])->middleware('role:admin');
 Route::get('/user/{id}/edit', [UserController::class, 'edit'])->middleware('role:admin');
