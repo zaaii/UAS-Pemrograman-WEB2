@@ -42,10 +42,12 @@ Route::get('/password/reset', function () {
     return view('auth.passwords.email');
 })->middleware('guest')->name('password.request');
 
+Route::get('/genre', function () {
+    return view('pages.genre');
+});
+
 
 //              ADMIN               //
+Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::get('admin', [MovieController::class, 'showadmin'])->middleware('role:admin');
-Route::post('add', [MovieController::class, 'store']);
-Route::get('admin/movie/add', function () {
-    return view('admin.movie.add');
-});
+Route::post('add', [MovieController::class, 'store'])->name('add');

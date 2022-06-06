@@ -11,7 +11,7 @@
 					<div class="main__title">
 						<h2>Dashboard</h2>
 
-						<a href="{{url('admin/movie/add')}}" class="main__title-link">Add Item</a>
+						<a href="{{route('movie.create')}}" class="main__title-link">Add Item</a>
 					</div>
 				</div>
 				<!-- end main title -->

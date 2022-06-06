@@ -15,7 +15,7 @@
 
 				<!-- form -->
 				<div class="col-12">
-					<form action="add" method="POST" class="form" enctype="multipart/form-data">
+					<form action="{{route('movie.store')}}" method="POST" class="form" enctype="multipart/form-data">
 						@csrf
 						<div class="row">
 							<div class="col-12 col-md-5 form__cover">
