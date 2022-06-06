@@ -43,10 +43,22 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
+
+
 // fitur forgot password tidak bisa di akses dalam mode sudah login
 Route::get('/password/reset', function () {
     return view('auth.passwords.email');
 })->middleware('guest')->name('password.request');
+
+//category
+Route::get('/category', function () {
+    return view('pages.category');
+})->middleware('auth');
+
+//pricing
+Route::get('/pricing', function () {
+    return view('pages.pricing');
+})->middleware('auth');
 
 Route::get('/genre', function () {
     return view('pages.genre');
