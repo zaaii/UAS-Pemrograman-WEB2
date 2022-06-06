@@ -89,6 +89,9 @@
 											<div class="main__table-text">{{$movie->id}}</div>
 										</td>
 										<td>
+											<div class="main__table-text">{{$actor_id->actor}}</div>
+										</td>
+										<td>
 											<div class="main__table-text"><a href="#">{{$movie->original_title}}</a></div>
 										</td>
 										<td>
