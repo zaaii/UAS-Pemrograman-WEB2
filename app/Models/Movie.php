@@ -11,4 +11,9 @@ class Movie extends Model
     protected $table = 'movie';
     protected $primaryKey = 'id';
     protected $fillable = ['original_title', 'overview', 'poster_path', 'release_date', 'video', 'length', 'genre', 'quality', 'category'];
+
+    public function Actor()
+    {
+        return $this->belongsToMany('App\Models\Actor', 'actor_movie', 'movie_id',);
+    }
 }
